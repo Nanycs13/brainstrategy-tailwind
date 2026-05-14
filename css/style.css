@@ -1,15 +1,251 @@
-/* Custom Styles if needed */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+/* =============================================
+   VARIÁVEIS
+   ============================================= */
+:root {
+  --brand: #6d28d9;
+  --brand-dark: #4c1d95;
+  --brand-light: #ede9fe;
 }
 
-/* Fallback para fontes caso o Tailwind CDN demore a carregar */
+
+/* =============================================
+   BASE
+   ============================================= */
 body {
   font-family: 'Roboto', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
+}
+
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+/* Nav geral (fallback para navegadores que não aplicam todas as utilidades Tailwind) */
+nav {
+  background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 100%);
+}
+
+nav a {
+  color: rgba(255,255,255,0.95);
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+
+/* =============================================
+   BOTÃO BRAND
+   ============================================= */
+.btn-brand {
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+  color: #fff;
+  border: none;
+}
+
+.btn-brand:hover {
+  background: linear-gradient(135deg, #3b0d8e, var(--brand-dark));
+  color: #fff;
+}
+
+.bg-brand {
+  background-color: var(--brand) !important;
+}
+
+.text-brand {
+  color: var(--brand) !important;
+}
+
+.link-brand {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.link-brand:hover {
+  color: var(--brand-dark);
+}
+
+
+/* =============================================
+   CARROSSEL
+   ============================================= */
+.carousel-img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.carousel-caption h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+@media (max-width: 576px) {
+  .carousel-img {
+    height: 320px;
+  }
+
+  .carousel-caption h2 {
+    font-size: 1.3rem;
+  }
+}
+
+
+/* =============================================
+   CARDS – SERVIÇOS
+   ============================================= */
+.servico-card {
+  border: none !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servico-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(109, 40, 217, 0.2);
+}
+
+.icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background-color: var(--brand-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box i {
+  font-size: 1.5rem;
+  color: var(--brand);
+}
+
+
+/* =============================================
+   TABELA
+   ============================================= */
+.plans-table thead,
+table thead {
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+  color: #fff;
+}
+
+table tbody tr:hover {
+  background-color: var(--brand-light);
+}
+
+/* responsividade para tabelas pequenas */
+.plans-wrapper {
+  overflow-x: auto;
+}
+
+
+/* =============================================
+   TIME
+   ============================================= */
+.time-card {
+  border-radius: 16px !important;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.time-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 9999px;
+  border: 4px solid var(--brand-light);
+  object-fit: cover;
+}
+
+
+/* =============================================
+   FORMULÁRIO
+   ============================================= */
+.form-control:focus,
+.form-select:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 0.2rem rgba(109, 40, 217, 0.12);
+}
+
+/* Inputs padrão quando Tailwind não está presente */
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+
+/* =============================================
+   MODAL
+   ============================================= */
+.modal-header-brand {
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+}
+
+/* modal centralizado fallback */
+.modal-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  background: linear-gradient(135deg, #1e1b4b, var(--brand-dark));
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-links li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-social {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
+.footer-social:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.footer-hr {
+  border-color: rgba(255, 255, 255, 0.15);
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
 }
